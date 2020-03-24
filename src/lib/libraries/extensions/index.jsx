@@ -46,6 +46,22 @@ import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
 import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
+import onegpioArduinoImage from './onegpioArduino/onegpioArduino.png';
+import onegpioArduinoInsetIconURL from './onegpioArduino/onegpioArduino-small.png';
+
+import onegpioRpiImage from './onegpioRpi/onegpioRpi.png';
+import onegpioRpiInsetIconURL from './onegpioRpi/onegpioRpi-small.png';
+
+import onegpioEspImage from './onegpioEsp/onegpioEsp.png';
+import onegpioEspInsetIconURL from './onegpioEsp/onegpioEsp-small.png';
+
+import onegpioPicoboardImage from './onegpioPicoboard/onegpioPicoboard.jpg';
+import onegpioPicoboardInsetIconURL from './onegpioPicoboard/onegpioPicoboard-small.png';
+
+import onegpioCpxImage from './onegpioCpx/onegpioCpx.jpg';
+import onegpioCpxInsetIconURL from './onegpioCpx/onegpioCpx-small.png';
+
+
 export default [
     {
         name: (
@@ -317,5 +333,159 @@ export default [
             />
         ),
         helpLink: 'https://scratch.mit.edu/vernier'
+    },
+    {
+        name: 'OneGpio Arduino',
+        extensionId: 'onegpioArduino',
+        collaborator: "Mr. Y's Lab",
+        iconURL: onegpioArduinoImage,
+        insetIconURL: onegpioArduinoInsetIconURL,
+        description: 'OneGPIOArduino',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio ESP-8266',
+        extensionId: 'onegpioEsp',
+        collaborator: "Mr. Y's Lab",
+        iconURL: onegpioEspImage,
+        insetIconURL: onegpioEspInsetIconURL,
+        description: 'OneGPIOEsp',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio Picoboard',
+        extensionId: 'onegpioPicoboard',
+        collaborator: "Mr. Y's Lab",
+        iconURL: onegpioPicoboardImage,
+        insetIconURL: onegpioPicoboardInsetIconURL,
+        description: 'OneGPIOPicoboard',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio Playground Express',
+        extensionId: 'onegpioCpx',
+        collaborator: "Mr. Y's Lab",
+        iconURL: onegpioCpxImage,
+        insetIconURL: onegpioCpxInsetIconURL,
+        description: 'OneGPIOCpx',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'OneGpio Raspberry Pi',
+        extensionId: 'onegpioRpi',
+        collaborator: "Mr. Y's Lab",
+        iconURL: onegpioRpiImage,
+        insetIconURL: onegpioRpiInsetIconURL,
+        description: 'OneGPIORpi',
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+	name: 'JSON',
+	extensionId: 'json',
+    	collaborator: 'gasolin',
+    	iconURL: gdxforIconURL,
+    	insetIconURL: gdxforInsetIconURL,
+    	description: (
+            <FormattedMessage
+            	defaultMessage="Fetch JSON."
+                description="Fetch JSON extension"
+                id="gui.extension.gasojson.description"
+            />
+    	),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/gasolin/scratch3-internet'
+    },
+    {
+  	name: 'LASS',
+	extensionId: 'lass',
+	collaborator: 'gasolin',
+	iconURL: gdxforIconURL,
+	insetIconURL: gdxforInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="Fetch LASS."
+                description="Fetch LASS extension"
+                id="gui.extension.gasolass.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/gasolin/scratch3-internet'
+    },
+    {
+    	name: 'IFTTT',
+	extensionId: 'ifttt',
+	collaborator: 'gasolin',
+	iconURL: gdxforIconURL,
+	insetIconURL: gdxforInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="IFTTT Webhook"
+                description="IFTTT Webhook extension"
+                id="gui.extension.gasoifttt.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/gasolin/scratch3-internet'
+    },
+    {
+	name: 'ThingSpeak',
+	extensionId: 'thingspeak',
+	collaborator: 'gasolin',
+	iconURL: gdxforIconURL,
+	insetIconURL: gdxforInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="ThingSpeak"
+                description="ThingSpeak extension"
+                id="gui.extension.gasothingspeak.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/gasolin/scratch3-internet'
     }
 ];
