@@ -61,6 +61,10 @@ import onegpioPicoboardInsetIconURL from './onegpioPicoboard/onegpioPicoboard-sm
 import onegpioCpxImage from './onegpioCpx/onegpioCpx.jpg';
 import onegpioCpxInsetIconURL from './onegpioCpx/onegpioCpx-small.png';
 
+import jsonImage from './json/json.png';
+import lassImage from './lass/lass.png';
+import iftttImage from './ifttt/ifttt.png';
+import thingspeakImage from './thingspeak/thingspeak.png';
 
 export default [
     {
@@ -408,7 +412,7 @@ export default [
 	name: 'JSON',
 	extensionId: 'json',
     	collaborator: 'gasolin',
-    	iconURL: gdxforIconURL,
+    	iconURL: jsonImage,
     	insetIconURL: gdxforInsetIconURL,
     	description: (
             <FormattedMessage
@@ -429,7 +433,7 @@ export default [
   	name: 'LASS',
 	extensionId: 'lass',
 	collaborator: 'gasolin',
-	iconURL: gdxforIconURL,
+	iconURL: lassImage,
 	insetIconURL: gdxforInsetIconURL,
 	description: (
             <FormattedMessage
@@ -450,7 +454,7 @@ export default [
     	name: 'IFTTT',
 	extensionId: 'ifttt',
 	collaborator: 'gasolin',
-	iconURL: gdxforIconURL,
+	iconURL: iftttImage,
 	insetIconURL: gdxforInsetIconURL,
 	description: (
             <FormattedMessage
@@ -471,7 +475,7 @@ export default [
 	name: 'ThingSpeak',
 	extensionId: 'thingspeak',
 	collaborator: 'gasolin',
-	iconURL: gdxforIconURL,
+	iconURL: thingspeakImage,
 	insetIconURL: gdxforInsetIconURL,
 	description: (
             <FormattedMessage
