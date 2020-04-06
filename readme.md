@@ -1,4 +1,4 @@
-Open Scrtach Extension Platform (OSEP)
+# Open Scratch Extension Platform (OSEP)
 
 > ## Projects & Licenses:
 
