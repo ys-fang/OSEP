@@ -1,12 +1,16 @@
 Open Scrtach Extension Platform (OSEP)
 
-OSEP is a comhination of multiple Github open-soucred projects including:
+> ## Projects & Licenses:
+
+OSEP is a combination of multiple Github open-soucred projects including:
 
 + [scratch-vm](https://github.com/LLK/scratch-vm/blob/develop/LICENSE)
 + [s3-extend](https://github.com/MrYsLab/s3-extend/blob/master/LICENSE)
 + [scratch3-internet](https://github.com/gasolin/scratch3-internet/blob/master/LICENSE)
 + [my-scratch3-offline](https://github.com/t301000/my-scratch3-offline)
 
+
+> ## Acknowledgements:  
 
 Thanks all the developers for the kind contribution and hard work!
 
