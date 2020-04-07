@@ -1,6 +1,6 @@
 #### Open Scratch Extension Platform (OSEP)
 ![osep logo](./logo/osep.svg)
-    
+<img src="./logo/osep.svg" styele="height: 150px">    
     
 > ## Projects & Licenses:
 
