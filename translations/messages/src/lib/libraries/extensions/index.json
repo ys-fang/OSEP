@@ -110,14 +110,14 @@
     "defaultMessage": "Fetch JSON."
   },
   {
-    "id": "gui.extension.gasolass.description",
-    "description": "Fetch LASS extension",
-    "defaultMessage": "Fetch LASS."
-  },
-  {
     "id": "gui.extension.gasoifttt.description",
     "description": "IFTTT Webhook extension",
     "defaultMessage": "IFTTT Webhook"
+  },
+  {
+    "id": "gui.extension.gasolass.description",
+    "description": "Fetch LASS extension",
+    "defaultMessage": "Fetch LASS."
   },
   {
     "id": "gui.extension.gasothingspeak.description",

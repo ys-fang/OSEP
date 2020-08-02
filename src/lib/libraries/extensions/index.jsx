@@ -410,17 +410,38 @@ export default [
     },
     {
 	name: 'JSON',
-	extensionId: 'json',
+    	extensionId: 'gasoJSON',
     	collaborator: 'gasolin',
     	iconURL: jsonImage,
-    	insetIconURL: gdxforInsetIconURL,
+    	insetIconURL: onegpioRpiInsetIconURL,
     	description: (
-            <FormattedMessage
+        	<FormattedMessage
             	defaultMessage="Fetch JSON."
-                description="Fetch JSON extension"
-                id="gui.extension.gasojson.description"
-            />
+            	description="Fetch JSON extension"
+            	id="gui.extension.gasojson.description"
+        	/>
     	),
+    	featured: true,
+    	disabled: false,
+    	// bluetoothRequired: false,
+    	internetConnectionRequired: true,
+    	// launchPeripheralConnectionFlow: false,
+    	useAutoScan: false,
+    	helpLink: 'https://github.com/gasolin/scratch3-internet'
+    },
+    {
+    	name: 'IFTTT',
+	extensionId: 'gasoIFTTT',
+	collaborator: 'gasolin',
+	iconURL: iftttImage,
+	insetIconURL: onegpioRpiInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="IFTTT Webhook"
+                description="IFTTT Webhook extension"
+                id="gui.extension.gasoifttt.description"
+            />
+        ),
         featured: true,
         disabled: false,
         // bluetoothRequired: false,
@@ -431,7 +452,7 @@ export default [
     },
     {
   	name: 'LASS',
-	extensionId: 'lass',
+	extensionId: 'gasoLASS',
 	collaborator: 'gasolin',
 	iconURL: lassImage,
 	insetIconURL: gdxforInsetIconURL,
@@ -451,29 +472,8 @@ export default [
         helpLink: 'https://github.com/gasolin/scratch3-internet'
     },
     {
-    	name: 'IFTTT',
-	extensionId: 'ifttt',
-	collaborator: 'gasolin',
-	iconURL: iftttImage,
-	insetIconURL: gdxforInsetIconURL,
-	description: (
-            <FormattedMessage
-                defaultMessage="IFTTT Webhook"
-                description="IFTTT Webhook extension"
-                id="gui.extension.gasoifttt.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        // bluetoothRequired: false,
-        internetConnectionRequired: true,
-        // launchPeripheralConnectionFlow: false,
-        useAutoScan: false,
-        helpLink: 'https://github.com/gasolin/scratch3-internet'
-    },
-    {
 	name: 'ThingSpeak',
-	extensionId: 'thingspeak',
+	extensionId: 'gasoThingSpeak',
 	collaborator: 'gasolin',
 	iconURL: thingspeakImage,
 	insetIconURL: gdxforInsetIconURL,
@@ -492,4 +492,5 @@ export default [
         useAutoScan: false,
         helpLink: 'https://github.com/gasolin/scratch3-internet'
     }
+
 ];
