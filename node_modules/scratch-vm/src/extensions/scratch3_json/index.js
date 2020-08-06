@@ -25,11 +25,8 @@ class gasoJSON {
         // string op
         this.decoder = new TextDecoder();
         this.lineBuffer = '';
-
         this.data = {};
-	this.txt = {};
-	this.txtlenght = {};
-	this.googlecolumn = {};
+
         this.emptyObj = {
             VALUE: {}
         };
@@ -157,118 +154,6 @@ class gasoJSON {
                         }
                     },
                     text: msg.readFromJSON[theLocale]
-                },
-		{
-                    opcode: 'googleJSON',
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        url: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'https://docs.google.com/spreadsheets/d/KEY_ID/edit?usp=sharing'
-                        }
-                    },
-                    text: msg.googleJSON[theLocale]
-                },
-		{
-                    opcode: 'googlecolumnTEXT',
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-			variable: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'data'
-                        },
-                        n: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: '1'
-                        },
-                        column: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'title'
-                        }
-                    },
-                    text: msg.googlecolumnTEXT[theLocale]
-                },
-		{
-                    opcode: 'writeGoogleCalc',
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        url: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'https://script.google.com/macros/s/「key」/exec'
-                        },
-			column1: {
-			    type: ArgumentType.STRING,
-                            defaultValue: ' '
-			},
-			column2: {
-			    type: ArgumentType.STRING,
-                            defaultValue: ' '
-			},
-			column3: {
-			    type: ArgumentType.STRING,
-                            defaultValue: ' '
-			}
-                    },
-                    text: msg.writeGoogleCalc[theLocale]
-                },
-		{
-                    opcode: 'readtextFILE',
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        url: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'http://0.0.0.0:8601/FILE.txt'
-                        }
-		    },
-		    text:msg.readtextFILE[theLocale]
-                },
-                {
-                    opcode: 'readFromTEXT',
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        id: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'id'
-                        }
-                    },
-                    text: msg.readFromTEXT[theLocale]
-                },
-                {
-                    opcode: 'textLENGHT',
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        id: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'id'
-                        }
-                    },
-                    text: msg.textLENGHT[theLocale]
-                },
-		{
-                    opcode: 'readtxtDATA',
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        variable: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'data'
-                        },
-                        n: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: '1'
-                        }
-                    },
-                    text: msg.readtxtDATA[theLocale]
-                },
-                {
-                    opcode: 'openURL',
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        url: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'https://'
-                        }
-                    },
-                    text: msg.openURL[theLocale]
                 }
             ]
         };
@@ -288,33 +173,10 @@ class gasoJSON {
         });
     }
 
-    googleJSON (args) {
-	const urlsplit = args.url.split("/");
-	const aurl ='https://spreadsheets.google.com/feeds/list/'+urlsplit[5]+'/od6/public/values?alt=json';
-	const url = new URL(aurl);
-        return fetch(url).then(res => {
-            if (res.ok) {
-                res.json().then(json => {
-                    console.log("got json set", json);
-                    this.data.fetched = true;
-                    this.data.data = JSON.stringify(json.feed.entry);
-                    this.runtime.startHats('gasoJSON_onJSONReceived', {});
-                });
-            }
-        });
-    }
-
     isDataFetched () {
         return this.data.fetched;
     }
 
-    isTxtFetched () {
-        return this.txt.fetched;
-    }
-
-    istextLENGHTFetched () {
-        return this.txtlenght.fetched;
-    }
 
     onJSONReceived (){
         if (this.isDataFetched()) {
@@ -356,79 +218,6 @@ class gasoJSON {
         }
     }
 
-    readtextFILE (args) {
-	const file = args.url;
-	this.txt.data = fetch(file,{method:'get'}).then(response => response.text());
-	this.txt.fetched = true;
-    }
-
-    readtxtDATA (args) {
-        const variable = args.variable || this.emptyObj;
-        const n = args.n;
-        try {
-	    const parsed = variable.split('\n');
-	    this.txtlenght.fetched = true;
-	    this.txtlenght.data = parsed.length-1;
-            const data = parsed[n - 1];
-            return typeof data === 'string' ? data : txt.stringify(data);
-        } catch (err) {
-            return `Error: ${err}`;
-        }
-    }
-
-
-    readFromTEXT () {
-        if (this.isTxtFetched()) {
-            console.log('return ', this.txt.data);
-            return this.txt.data;
-        }
-        return msg.readFromTEXTErr[theLocale];
-    }
-
-    googlecolumnTEXT(args){
-	const variable = args.variable || this.emptyObj;
-        const n = args.n;
-	const column = "gsx$" + args.column;
-        try {
-	    const parsed = JSON.parse(variable);
-            var data = parsed[n - 1];
-            data = JSON.stringify(data);
-            const a_parsed = JSON.parse(data);
-            var a_data = a_parsed[column];
-	    a_data = JSON.stringify(a_data);
-	    const t_parsed = JSON.parse(a_data);
-	    var t_data = t_parsed["$t"];
-            return typeof t_data === 'string' ? t_data : JSON.stringify(t_data);
-         }catch (err){
-	    return `Error: ${err}`;	
-	}
-    }
-
-    textLENGHT () {
-        if (this.istextLENGHTFetched()) {
-            console.log('return ', this.txtlenght.data);
-            return this.txtlenght.data;
-        }
-        return msg.textLENGHTErr[theLocale];
-    }
-
-    writeGoogleCalc (args) {
-	alert("test");
-	const column1 = args.column1 || defaultValue;
-	const column2 = args.column2 || defaultValue;
-	const column3 = args.column3 || defaultValue;
-	const url = args.url;
-	var gurl = url + "?c1=" + column1 + "&c2=" + column2 + "&c3=" + column3;
-	return fetch(gurl).then(res => {
-	    if (res.ok) {
-	    }
-	});
-    }
-
-    openURL (args) {
-	const url = args.url;
-	var openurl = window.open(url);
-    }
 
 }
 

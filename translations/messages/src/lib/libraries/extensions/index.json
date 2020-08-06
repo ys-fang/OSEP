@@ -123,5 +123,20 @@
     "id": "gui.extension.gasothingspeak.description",
     "description": "ThingSpeak extension",
     "defaultMessage": "ThingSpeak"
+  },
+  {
+    "id": "gui.extension.voicetotext.description",
+    "description": "Voice To Text extension",
+    "defaultMessage": "VoiceToText"
+  },
+  {
+    "id": "gui.extension.urltxt.description",
+    "description": "get url text data extension",
+    "defaultMessage": "urlTXT"
+  },
+  {
+    "id": "gui.extension.rwgoogle.description",
+    "description": "read write google sheets extension",
+    "defaultMessage": "rwGoogle"
   }
 ]
