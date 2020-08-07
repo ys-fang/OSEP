@@ -77,7 +77,9 @@ class SBFileUploader extends React.Component {
         this.resetFileInput();
     }
     resetFileInput () {
-        this.fileToUpload = null;
+	//add estea
+        //this.fileToUpload = null;
+        this.fileToUpload = '';
         if (this.fileInput) {
             this.fileInput.value = null;
         }

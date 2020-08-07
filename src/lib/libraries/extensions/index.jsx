@@ -66,6 +66,13 @@ import lassImage from './lass/lass.png';
 import iftttImage from './ifttt/ifttt.png';
 import thingspeakImage from './thingspeak/thingspeak.png';
 
+import voicetotextImage from './voicetotext/voicetotext.png';
+import voicetotextInsetIconURL from './voicetotext/voicetotext.svg';
+
+import urltxtImage from './urltxt/urltxt.png';
+import urltxtInsetIconURL from './urltxt/urltxt.svg';
+import rwGoogleImage from './rwgoogle/rwgoogle.png';
+import rwGoogleInsetIconURL from './rwgoogle/rwgoogle.svg';
 export default [
     {
         name: (
@@ -410,49 +417,28 @@ export default [
     },
     {
 	name: 'JSON',
-	extensionId: 'json',
+    	extensionId: 'gasoJSON',
     	collaborator: 'gasolin',
     	iconURL: jsonImage,
     	insetIconURL: gdxforInsetIconURL,
     	description: (
-            <FormattedMessage
+        	<FormattedMessage
             	defaultMessage="Fetch JSON."
-                description="Fetch JSON extension"
-                id="gui.extension.gasojson.description"
-            />
+            	description="Fetch JSON extension"
+            	id="gui.extension.gasojson.description"
+        	/>
     	),
-        featured: true,
-        disabled: false,
-        // bluetoothRequired: false,
-        internetConnectionRequired: true,
-        // launchPeripheralConnectionFlow: false,
-        useAutoScan: false,
-        helpLink: 'https://github.com/gasolin/scratch3-internet'
-    },
-    {
-  	name: 'LASS',
-	extensionId: 'lass',
-	collaborator: 'gasolin',
-	iconURL: lassImage,
-	insetIconURL: gdxforInsetIconURL,
-	description: (
-            <FormattedMessage
-                defaultMessage="Fetch LASS."
-                description="Fetch LASS extension"
-                id="gui.extension.gasolass.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        // bluetoothRequired: false,
-        internetConnectionRequired: true,
-        // launchPeripheralConnectionFlow: false,
-        useAutoScan: false,
-        helpLink: 'https://github.com/gasolin/scratch3-internet'
+    	featured: true,
+    	disabled: false,
+    	// bluetoothRequired: false,
+    	internetConnectionRequired: true,
+    	// launchPeripheralConnectionFlow: false,
+    	useAutoScan: false,
+    	helpLink: 'https://github.com/gasolin/scratch3-internet'
     },
     {
     	name: 'IFTTT',
-	extensionId: 'ifttt',
+	extensionId: 'gasoIFTTT',
 	collaborator: 'gasolin',
 	iconURL: iftttImage,
 	insetIconURL: gdxforInsetIconURL,
@@ -472,8 +458,29 @@ export default [
         helpLink: 'https://github.com/gasolin/scratch3-internet'
     },
     {
+  	name: 'LASS',
+	extensionId: 'gasoLASS',
+	collaborator: 'gasolin',
+	iconURL: lassImage,
+	insetIconURL: gdxforInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="Fetch LASS."
+                description="Fetch LASS extension"
+                id="gui.extension.gasolass.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/gasolin/scratch3-internet'
+    },
+    {
 	name: 'ThingSpeak',
-	extensionId: 'thingspeak',
+	extensionId: 'gasoThingSpeak',
 	collaborator: 'gasolin',
 	iconURL: thingspeakImage,
 	insetIconURL: gdxforInsetIconURL,
@@ -491,5 +498,69 @@ export default [
         // launchPeripheralConnectionFlow: false,
         useAutoScan: false,
         helpLink: 'https://github.com/gasolin/scratch3-internet'
+    },
+    {
+	name: 'voicetoTEXT',
+	extensionId: 'voicetoTEXT',
+	collaborator: 'estea chen',
+	iconURL: voicetotextImage,
+	insetIconURL: voicetotextInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="VoiceToText"
+                description="Voice To Text extension"
+                id="gui.extension.voicetotext.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/estea8968/scratch3-internet'
+    },
+    {
+	name: 'urlTXT',
+	extensionId: 'urlTXT',
+	collaborator: 'estea chen',
+	iconURL: urltxtImage,
+	insetIconURL: urltxtInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="urlTXT"
+                description="get url text data extension"
+                id="gui.extension.urltxt.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/estea8968/scratch3-internet'
+    },
+    {
+	name: 'rwGoogle',
+	extensionId: 'rwGoogle',
+	collaborator: 'estea chen',
+	iconURL: rwGoogleImage,
+	insetIconURL: rwGoogleInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="rwGoogle"
+                description="read write google sheets extension"
+                id="gui.extension.rwgoogle.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        // bluetoothRequired: false,
+        internetConnectionRequired: true,
+        // launchPeripheralConnectionFlow: false,
+        useAutoScan: false,
+        helpLink: 'https://github.com/estea8968/scratch3-internet'
     }
+
 ];
