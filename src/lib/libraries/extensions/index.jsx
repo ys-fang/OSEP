@@ -73,6 +73,10 @@ import urltxtImage from './urltxt/urltxt.png';
 import urltxtInsetIconURL from './urltxt/urltxt.svg';
 import rwGoogleImage from './rwgoogle/rwgoogle.png';
 import rwGoogleInsetIconURL from './rwgoogle/rwgoogle.svg';
+
+import knnalgorithmImage from './knnAlgorithm/knnAlgorithm.png';
+import knnalgorithmInsetImage from './knnAlgorithm/knnAlgorithm-small.svg';
+
 export default [
     {
         name: (
@@ -351,7 +355,13 @@ export default [
         collaborator: "Mr. Y's Lab",
         iconURL: onegpioArduinoImage,
         insetIconURL: onegpioArduinoInsetIconURL,
-        description: 'OneGPIOArduino',
+	description: (
+            <FormattedMessage
+                defaultMessage="OneGPIOArduino"
+                description="Onegpio for the Arduino extension"
+                id="gui.extension.OneGPIOArduino.description"
+            />
+        ),
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
@@ -507,7 +517,7 @@ export default [
 	insetIconURL: voicetotextInsetIconURL,
 	description: (
             <FormattedMessage
-                defaultMessage="VoiceToText"
+                defaultMessage="語音轉文字VoiceToText"
                 description="Voice To Text extension"
                 id="gui.extension.voicetotext.description"
             />
@@ -515,7 +525,7 @@ export default [
         featured: true,
         disabled: false,
         // bluetoothRequired: false,
-        internetConnectionRequired: true,
+        internetConnectionRequired: false,
         // launchPeripheralConnectionFlow: false,
         useAutoScan: false,
         helpLink: 'https://github.com/estea8968/scratch3-internet'
@@ -561,6 +571,21 @@ export default [
         // launchPeripheralConnectionFlow: false,
         useAutoScan: false,
         helpLink: 'https://github.com/estea8968/scratch3-internet'
-    }
-
+    },
+    {
+        name: 'knnAlgorithm',
+        extensionId: 'knnAlgorithm',
+        iconURL: knnalgorithmImage,
+        insetIconURL: knnalgorithmInsetImage,
+	collaborator: 'wwj718 summercar',
+        description: (
+           <FormattedMessage
+               defaultMessage="knn algorithm."
+               description="Description for the 'knn algorithm' extension"
+	       id="gui.extension.knnalgorithm.description"
+           />
+        ),
+        featured: true,
+        helpLink: 'https://github.com/CodeLabClub/scratch3_knn'
+   }
 ];
