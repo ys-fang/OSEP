@@ -177,8 +177,7 @@ exports.localStorageRouter = function (url) {
         return null;
     }
     else {
-        if (!Array.isArray(url) &&
-            url.startsWith(BrowserLocalStorage.URL_SCHEME)) {
+        if (url.startsWith(BrowserLocalStorage.URL_SCHEME)) {
             return browserLocalStorage(url.slice(BrowserLocalStorage.URL_SCHEME.length));
         }
         else {
