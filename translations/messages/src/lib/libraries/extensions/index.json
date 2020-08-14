@@ -105,6 +105,11 @@
     "defaultMessage": "Connecting"
   },
   {
+    "id": "gui.extension.OneGPIOArduino.description",
+    "description": "Onegpio for the Arduino extension",
+    "defaultMessage": "OneGPIOArduino"
+  },
+  {
     "id": "gui.extension.gasojson.description",
     "description": "Fetch JSON extension",
     "defaultMessage": "Fetch JSON."
@@ -127,7 +132,7 @@
   {
     "id": "gui.extension.voicetotext.description",
     "description": "Voice To Text extension",
-    "defaultMessage": "VoiceToText"
+    "defaultMessage": "語音轉文字VoiceToText"
   },
   {
     "id": "gui.extension.urltxt.description",
@@ -138,5 +143,10 @@
     "id": "gui.extension.rwgoogle.description",
     "description": "read write google sheets extension",
     "defaultMessage": "rwGoogle"
+  },
+  {
+    "id": "gui.extension.knnalgorithm.description",
+    "description": "Description for the 'knn algorithm' extension",
+    "defaultMessage": "knn algorithm."
   }
 ]
