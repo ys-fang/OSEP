@@ -9,14 +9,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var doc_1 = require("../doc");
 var globals_1 = require("../globals");
 var serialization_1 = require("../serialization");
 var Optimizer = (function (_super) {
@@ -41,12 +34,6 @@ var Optimizer = (function (_super) {
     Optimizer.prototype.computeGradients = function (f, varList) {
         return globals_1.variableGrads(f, varList);
     };
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers' })
-    ], Optimizer.prototype, "minimize", null);
-    Optimizer = __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Classes', namespace: 'train' })
-    ], Optimizer);
     return Optimizer;
 }(serialization_1.Serializable));
 exports.Optimizer = Optimizer;

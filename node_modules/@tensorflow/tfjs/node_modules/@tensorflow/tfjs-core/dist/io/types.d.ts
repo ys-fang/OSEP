@@ -2,11 +2,11 @@ export declare const DTYPE_VALUE_SIZE_MAP: {
     [dtype: string]: number;
 };
 export declare type WeightsManifestConfig = WeightsManifestGroupConfig[];
-export interface WeightsManifestGroupConfig {
+export declare interface WeightsManifestGroupConfig {
     paths: string[];
     weights: WeightsManifestEntry[];
 }
-export interface WeightsManifestEntry {
+export declare interface WeightsManifestEntry {
     name: string;
     shape: number[];
     dtype: 'float32' | 'int32' | 'bool';
@@ -24,14 +24,14 @@ export interface SaveResult {
     responses?: Response[];
     errors?: Array<{} | string>;
 }
-export interface ModelArtifactsInfo {
+export declare interface ModelArtifactsInfo {
     dateSaved: Date;
     modelTopologyType: 'JSON' | 'GraphDef';
     modelTopologyBytes?: number;
     weightSpecsBytes?: number;
     weightDataBytes?: number;
 }
-export interface ModelArtifacts {
+export declare interface ModelArtifacts {
     modelTopology?: {} | ArrayBuffer;
     weightSpecs?: WeightsManifestEntry[];
     weightData?: ArrayBuffer;

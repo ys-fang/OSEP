@@ -110,6 +110,26 @@
     "defaultMessage": "OneGPIOArduino"
   },
   {
+    "id": "gui.extension.OneGPIOEsp.description",
+    "description": "Fetch JSON extension",
+    "defaultMessage": "Fetch JSON."
+  },
+  {
+    "id": "gui.extension.OneGPIOPicoboard.description",
+    "description": "Fetch JSON extension",
+    "defaultMessage": "Fetch JSON."
+  },
+  {
+    "id": "gui.extension.OneGPIOCpx.description",
+    "description": "Fetch JSON extension",
+    "defaultMessage": "Fetch JSON."
+  },
+  {
+    "id": "gui.extension.OneGPIORpi.description",
+    "description": "Fetch JSON extension",
+    "defaultMessage": "Fetch JSON."
+  },
+  {
     "id": "gui.extension.gasojson.description",
     "description": "Fetch JSON extension",
     "defaultMessage": "Fetch JSON."

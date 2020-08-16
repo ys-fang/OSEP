@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var tf = require("./index");
 var jasmine_util_1 = require("./jasmine_util");
+var tensor_util_env_1 = require("./tensor_util_env");
 var test_util_1 = require("./test_util");
 jasmine_util_1.describeWithFlags('debug on', test_util_1.ALL_ENVS, function () {
     beforeAll(function () {
@@ -19,6 +20,22 @@ jasmine_util_1.describeWithFlags('debug on', test_util_1.ALL_ENVS, function () {
         var a = tf.tensor1d([2, NaN]);
         var f = function () { return tf.relu(a); };
         expect(f).toThrowError();
+    });
+    it('debug mode errors when nans in tensor construction, int32', function () {
+        var a = function () { return tf.tensor1d([2, NaN], 'int32'); };
+        expect(a).toThrowError();
+    });
+    it('debug mode errors when nans in oneHot op (tensorlike), int32', function () {
+        var f = function () { return tf.oneHot([2, NaN], 3); };
+        expect(f).toThrowError();
+    });
+    it('debug mode errors when nan in convertToTensor, int32', function () {
+        var a = function () { return tensor_util_env_1.convertToTensor(NaN, 'a', 'test', 'int32'); };
+        expect(a).toThrowError();
+    });
+    it('debug mode errors when nan in convertToTensor array input, int32', function () {
+        var a = function () { return tensor_util_env_1.convertToTensor([NaN], 'a', 'test', 'int32'); };
+        expect(a).toThrowError();
     });
     it('A x B', function () {
         var a = tf.tensor2d([1, 2, 3, 4, 5, 6], [2, 3]);

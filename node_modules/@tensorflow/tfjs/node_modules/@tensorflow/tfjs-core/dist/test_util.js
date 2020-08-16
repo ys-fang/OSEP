@@ -3,25 +3,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var environment_1 = require("./environment");
 var tensor_1 = require("./tensor");
 var util = require("./util");
-exports.WEBGL_ENVS = [
-    {
-        'BACKEND': 'test-webgl',
-        'WEBGL_RENDER_FLOAT32_ENABLED': true,
-        'WEBGL_DOWNLOAD_FLOAT_ENABLED': true,
-        'WEBGL_VERSION': 1
-    },
-    {
-        'BACKEND': 'test-webgl',
-        'WEBGL_RENDER_FLOAT32_ENABLED': true,
-        'WEBGL_DOWNLOAD_FLOAT_ENABLED': true,
-        'WEBGL_VERSION': 2
-    }
-];
-exports.CPU_ENVS = [{ 'BACKEND': 'test-cpu' }];
-exports.CHROME_CPU_ENVS = [{ 'BACKEND': 'test-cpu', 'IS_CHROME': true }];
-exports.NATIVE_ENV = {};
-exports.BROWSER_ENVS = exports.WEBGL_ENVS.concat(exports.CPU_ENVS);
-exports.ALL_ENVS = [exports.NATIVE_ENV].concat(exports.BROWSER_ENVS);
+exports.WEBGL_ENVS = {
+    'HAS_WEBGL': true
+};
+exports.NODE_ENVS = {
+    'IS_NODE': true
+};
+exports.CHROME_ENVS = {
+    'IS_CHROME': true
+};
+exports.BROWSER_ENVS = {
+    'IS_BROWSER': true
+};
+exports.CPU_ENVS = {
+    'HAS_WEBGL': false
+};
+exports.ALL_ENVS = {};
 function expectArraysClose(actual, expected, epsilon) {
     if (epsilon == null) {
         epsilon = environment_1.ENV.get('TEST_EPSILON');

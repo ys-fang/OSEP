@@ -4,7 +4,10 @@ var jasmine_util_1 = require("../../jasmine_util");
 var test_util_1 = require("../../test_util");
 var gpgpu_context_1 = require("./gpgpu_context");
 var tex_util = require("./tex_util");
-jasmine_util_1.describeWithFlags('GPGPUContext downloadMatrixFromTexture', test_util_1.WEBGL_ENVS, function () {
+var DOWNLOAD_FLOAT_ENVS = {
+    'WEBGL_DOWNLOAD_FLOAT_ENABLED': true
+};
+jasmine_util_1.describeWithFlags('GPGPUContext downloadMatrixFromTexture', DOWNLOAD_FLOAT_ENVS, function () {
     var gpgpu;
     var texture;
     beforeEach(function () {
@@ -39,7 +42,7 @@ jasmine_util_1.describeWithFlags('GPGPUContext downloadMatrixFromTexture', test_
         gpgpu.deleteMatrixTexture(texture2);
     });
 });
-jasmine_util_1.describeWithFlags('GPGPUContext color texture with float', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('GPGPUContext color texture with float', DOWNLOAD_FLOAT_ENVS, function () {
     var gpgpu;
     var texture;
     afterEach(function () {
@@ -57,7 +60,7 @@ jasmine_util_1.describeWithFlags('GPGPUContext color texture with float', test_u
         test_util_1.expectNumbersClose(result[0], 0.123);
     });
 });
-jasmine_util_1.describeWithFlags('GPGPUContext setOutputMatrixTexture', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('GPGPUContext setOutputMatrixTexture', DOWNLOAD_FLOAT_ENVS, function () {
     var gpgpu;
     var texture;
     beforeEach(function () {
@@ -108,7 +111,7 @@ jasmine_util_1.describeWithFlags('GPGPUContext setOutputMatrixTexture', test_uti
         gpgpu.deleteMatrixTexture(output);
     });
 });
-jasmine_util_1.describeWithFlags('GPGPUContext setOutputPackedMatrixTexture', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('GPGPUContext setOutputPackedMatrixTexture', DOWNLOAD_FLOAT_ENVS, function () {
     var gpgpu;
     var texture;
     beforeEach(function () {
@@ -136,14 +139,14 @@ jasmine_util_1.describeWithFlags('GPGPUContext setOutputPackedMatrixTexture', te
         expect(gpgpu.gl.getParameter(gpgpu.gl.VIEWPORT)).toEqual(expected);
     });
 });
-jasmine_util_1.describeWithFlags('GPGPUContext setOutputMatrixWriteRegion', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('GPGPUContext setOutputMatrixWriteRegion', DOWNLOAD_FLOAT_ENVS, function () {
     var gpgpu;
     var program;
     var output;
     beforeEach(function () {
         gpgpu = new gpgpu_context_1.GPGPUContext();
         gpgpu.enableAutomaticDebugValidation(true);
-        var src = 'precision highp float; void main() { gl_FragColor = vec4(2,0,0,0); }';
+        var src = 'precision highp float; void main(){gl_FragColor = vec4(2,0,0,0);}';
         program = gpgpu.createProgram(src);
         output = gpgpu.createFloat32MatrixTexture(4, 4);
         gpgpu.uploadMatrixToTexture(output, 4, 4, new Float32Array(16));
@@ -199,7 +202,7 @@ jasmine_util_1.describeWithFlags('GPGPUContext setOutputMatrixWriteRegion', test
         test_util_1.expectArraysClose(result, expected);
     });
 });
-jasmine_util_1.describeWithFlags('GPGPUContext', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('GPGPUContext', DOWNLOAD_FLOAT_ENVS, function () {
     var gpgpu;
     beforeEach(function () {
         gpgpu = new gpgpu_context_1.GPGPUContext();

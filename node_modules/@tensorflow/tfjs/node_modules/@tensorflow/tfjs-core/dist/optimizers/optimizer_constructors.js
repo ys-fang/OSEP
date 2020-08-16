@@ -1,12 +1,5 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-var doc_1 = require("../doc");
 var adadelta_optimizer_1 = require("./adadelta_optimizer");
 var adagrad_optimizer_1 = require("./adagrad_optimizer");
 var adam_optimizer_1 = require("./adam_optimizer");
@@ -56,27 +49,6 @@ var OptimizerConstructors = (function () {
         if (initialAccumulatorValue === void 0) { initialAccumulatorValue = 0.1; }
         return new adagrad_optimizer_1.AdagradOptimizer(learningRate, initialAccumulatorValue);
     };
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "sgd", null);
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "momentum", null);
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "rmsprop", null);
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "adam", null);
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "adadelta", null);
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "adamax", null);
-    __decorate([
-        doc_1.doc({ heading: 'Training', subheading: 'Optimizers', namespace: 'train' })
-    ], OptimizerConstructors, "adagrad", null);
     return OptimizerConstructors;
 }());
 exports.OptimizerConstructors = OptimizerConstructors;

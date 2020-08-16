@@ -16,10 +16,13 @@ var Profiler = (function () {
             result = f();
         };
         var timer = this.backendTimer.time(holdResultWrapperFn);
-        var vals = result.dataSync();
-        util.checkForNaN(vals, result.dtype, name);
-        timer.then(function (timing) {
-            _this.logger.logKernelProfile(name, result, vals, timing.kernelMs);
+        var results = Array.isArray(result) ? result : [result];
+        results.forEach(function (r) {
+            var vals = r.dataSync();
+            util.checkComputationForNaN(vals, r.dtype, name);
+            timer.then(function (timing) {
+                _this.logger.logKernelProfile(name, r, vals, timing.kernelMs);
+            });
         });
         return result;
     };

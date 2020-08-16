@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var tf = require("../index");
-var test_util_1 = require("../test_util");
 var jasmine_util_1 = require("../jasmine_util");
+var test_util_1 = require("../test_util");
 var axis_util = require("./axis_util");
 describe('axis_util combineLocations', function () {
     it('rank 4, reduce last 2 dims', function () {
@@ -199,7 +199,7 @@ describe('axis_util parseAxisParam', function () {
         expect(function () { return axis_util.parseAxisParam(axis, shape); }).toThrowError();
     });
 });
-jasmine_util_1.describeWithFlags('axis_util getUndoAxesPermutation', test_util_1.CPU_ENVS, function () {
+jasmine_util_1.describeWithFlags('axis_util getUndoAxesPermutation', test_util_1.ALL_ENVS, function () {
     it('4d axes', function () {
         var axes = [2, 0, 1, 3];
         expect(axis_util.getUndoAxesPermutation(axes)).toEqual([1, 2, 0, 3]);

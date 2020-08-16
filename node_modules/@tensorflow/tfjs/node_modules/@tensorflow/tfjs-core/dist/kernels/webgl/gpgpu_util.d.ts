@@ -22,7 +22,8 @@ export declare function bindVertexProgramAttributeStreams(gl: WebGLRenderingCont
 export declare function uploadPixelDataToTexture(gl: WebGLRenderingContext, texture: WebGLTexture, pixels: ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement): void;
 export declare function uploadMatrixToTexture(gl: WebGLRenderingContext, texture: WebGLTexture, rows: number, columns: number, matrix: Float32Array, numChannels: number, textureConfig: TextureConfig): void;
 export declare function uploadMatrixToPackedTexture(gl: WebGLRenderingContext, texture: WebGLTexture, rows: number, columns: number, matrix: Float32Array, textureConfig: TextureConfig): void;
-export declare function downloadMatrixFromOutputTextureAsync(gl: WebGLRenderingContext, getBufferSubDataAsyncExtension: any, rows: number, columns: number, textureConfig: TextureConfig): Promise<Float32Array>;
+export declare function maybeCreateBufferFromOutputTexture(gl: WebGLRenderingContext, texture: WebGLTexture, rows: number, columns: number, textureConfig: TextureConfig): WebGLBuffer | WebGLTexture;
+export declare function downloadFloat32MatrixFromBuffer(gl: WebGLRenderingContext, buffer: WebGLBuffer, rows: number, columns: number, textureConfig: TextureConfig): Float32Array;
 export declare function downloadFloat32MatrixFromOutputTexture(gl: WebGLRenderingContext, rows: number, columns: number, textureConfig: TextureConfig): Float32Array;
 export declare function downloadByteEncodedFloatMatrixFromOutputTexture(gl: WebGLRenderingContext, rows: number, columns: number, textureConfig: TextureConfig): Float32Array;
 export declare function downloadMatrixFromPackedOutputTexture(gl: WebGLRenderingContext, rows: number, columns: number, textureConfig: TextureConfig): Float32Array;

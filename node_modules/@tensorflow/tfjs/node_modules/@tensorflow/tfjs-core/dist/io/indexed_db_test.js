@@ -4,7 +4,7 @@ var tf = require("../index");
 var jasmine_util_1 = require("../jasmine_util");
 var test_util_1 = require("../test_util");
 var indexed_db_1 = require("./indexed_db");
-jasmine_util_1.describeWithFlags('IndexedDB', test_util_1.CPU_ENVS, function () {
+jasmine_util_1.describeWithFlags('IndexedDB', test_util_1.BROWSER_ENVS, function () {
     var modelTopology1 = {
         'class_name': 'Sequential',
         'keras_version': '2.1.4',

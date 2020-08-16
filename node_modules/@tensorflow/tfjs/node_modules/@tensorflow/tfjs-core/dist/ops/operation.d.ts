@@ -1,1 +1,3 @@
-export declare function operation(target: {}, name: string, descriptor: PropertyDescriptor): PropertyDescriptor;
+export declare function op<T extends Function>(f: {
+    [name: string]: T;
+}): T;

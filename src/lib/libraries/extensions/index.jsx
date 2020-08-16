@@ -375,7 +375,13 @@ export default [
         collaborator: "Mr. Y's Lab",
         iconURL: onegpioEspImage,
         insetIconURL: onegpioEspInsetIconURL,
-        description: 'OneGPIOEsp',
+        description: (
+        	<FormattedMessage
+            	defaultMessage="Fetch JSON."
+            	description="Fetch JSON extension"
+            	id="gui.extension.OneGPIOEsp.description"
+        	/>
+    	),
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
@@ -389,7 +395,13 @@ export default [
         collaborator: "Mr. Y's Lab",
         iconURL: onegpioPicoboardImage,
         insetIconURL: onegpioPicoboardInsetIconURL,
-        description: 'OneGPIOPicoboard',
+        description: (
+        	<FormattedMessage
+            	defaultMessage="Fetch JSON."
+            	description="Fetch JSON extension"
+            	id="gui.extension.OneGPIOPicoboard.description"
+        	/>
+    	),
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
@@ -403,7 +415,13 @@ export default [
         collaborator: "Mr. Y's Lab",
         iconURL: onegpioCpxImage,
         insetIconURL: onegpioCpxInsetIconURL,
-        description: 'OneGPIOCpx',
+        description: (
+        	<FormattedMessage
+            	defaultMessage="Fetch JSON."
+            	description="Fetch JSON extension"
+            	id="gui.extension.OneGPIOCpx.description"
+        	/>
+    	),
         featured: true,
         disabled: false,
         internetConnectionRequired: true,
@@ -417,7 +435,13 @@ export default [
         collaborator: "Mr. Y's Lab",
         iconURL: onegpioRpiImage,
         insetIconURL: onegpioRpiInsetIconURL,
-        description: 'OneGPIORpi',
+        description: (
+        	<FormattedMessage
+            	defaultMessage="Fetch JSON."
+            	description="Fetch JSON extension"
+            	id="gui.extension.OneGPIORpi.description"
+        	/>
+    	),
         featured: true,
         disabled: false,
         internetConnectionRequired: true,

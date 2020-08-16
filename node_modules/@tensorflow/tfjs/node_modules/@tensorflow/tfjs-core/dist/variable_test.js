@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var tf = require("./index");
+var jasmine_util_1 = require("./jasmine_util");
 var tensor_1 = require("./tensor");
 var test_util_1 = require("./test_util");
-var jasmine_util_1 = require("./jasmine_util");
 jasmine_util_1.describeWithFlags('variable', test_util_1.ALL_ENVS, function () {
     it('simple assign', function () {
         var v = tensor_1.variable(tf.tensor1d([1, 2, 3]));
@@ -114,6 +114,24 @@ jasmine_util_1.describeWithFlags('variable', test_util_1.ALL_ENVS, function () {
             .toThrowError();
         expect(function () { return v.assign(tf.tensor1d([true, false, true], 'bool')); })
             .toThrowError();
+    });
+});
+jasmine_util_1.describeWithFlags('x instanceof Variable', test_util_1.ALL_ENVS, function () {
+    it('x: Variable', function () {
+        var t = tf.variable(tf.scalar(1));
+        expect(t instanceof tensor_1.Variable).toBe(true);
+    });
+    it('x: Variable-like', function () {
+        var t = { assign: function () { }, shape: [2], dtype: 'float32' };
+        expect(t instanceof tensor_1.Variable).toBe(true);
+    });
+    it('x: other object, fails', function () {
+        var t = { something: 'else' };
+        expect(t instanceof tensor_1.Variable).toBe(false);
+    });
+    it('x: Tensor, fails', function () {
+        var t = tf.scalar(1);
+        expect(t instanceof tensor_1.Variable).toBe(false);
     });
 });
 //# sourceMappingURL=variable_test.js.map

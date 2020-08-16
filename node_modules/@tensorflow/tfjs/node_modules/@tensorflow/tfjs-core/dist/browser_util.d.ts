@@ -1,3 +1,2 @@
-export declare class BrowserUtil {
-    static nextFrame(): Promise<void>;
-}
+declare function nextFrame(): Promise<void>;
+export { nextFrame };

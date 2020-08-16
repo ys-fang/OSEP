@@ -1,11 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var test_util_1 = require("../../test_util");
 var jasmine_util_1 = require("../../jasmine_util");
+var test_util_1 = require("../../test_util");
 var gpgpu_context_1 = require("./gpgpu_context");
 var mulmat_packed_gpu = require("./mulmat_packed_gpu");
 var mulmat_packed_gpu_1 = require("./mulmat_packed_gpu");
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (1x1 * 1x1)', test_util_1.WEBGL_ENVS, function () {
+var DOWNLOAD_FLOAT_ENVS = {
+    'WEBGL_DOWNLOAD_FLOAT_ENABLED': true
+};
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (1x1 * 1x1)', DOWNLOAD_FLOAT_ENVS, function () {
     it('returns a 1x1 matrix', function () {
         var a = new Float32Array([0]);
         var b = new Float32Array([0]);
@@ -49,7 +52,7 @@ jasmine_util_1.describeWithFlags('mulmat_packed_gpu (1x1 * 1x1)', test_util_1.WE
         expect(result[0]).toEqual(-31415926);
     });
 });
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (dot product)', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (dot product)', DOWNLOAD_FLOAT_ENVS, function () {
     it('returns a 1x1 matrix', function () {
         var a = new Float32Array(5);
         var b = new Float32Array(5);
@@ -94,7 +97,7 @@ function cpuMul2x2(a, b) {
     result[3] = (a[2] * b[1]) + (a[3] * b[3]);
     return result;
 }
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (2x2 * 2x2)', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (2x2 * 2x2)', DOWNLOAD_FLOAT_ENVS, function () {
     it('returns a 2x2 matrix', function () {
         var a = new Float32Array([0, 0, 0, 0]);
         var b = new Float32Array([0, 0, 0, 0]);
@@ -138,7 +141,7 @@ jasmine_util_1.describeWithFlags('mulmat_packed_gpu (2x2 * 2x2)', test_util_1.WE
         expect(result).toEqual(cpuMul2x2(a, b));
     });
 });
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (different shapes)', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (different shapes)', DOWNLOAD_FLOAT_ENVS, function () {
     it('returns a 4x1 when multiplying a 4x4 with a 4x1', function () {
         var a = new Float32Array(16);
         var b = new Float32Array(4);
@@ -178,7 +181,7 @@ jasmine_util_1.describeWithFlags('mulmat_packed_gpu (different shapes)', test_ut
         test_util_1.expectArraysClose(result, expected);
     });
 });
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (large matrices)', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (large matrices)', DOWNLOAD_FLOAT_ENVS, function () {
     it('returns 128x128 when multiplying 2 128x128s', function () {
         var a = new Float32Array(128 * 128);
         var b = new Float32Array(128 * 128);
@@ -193,7 +196,7 @@ jasmine_util_1.describeWithFlags('mulmat_packed_gpu (large matrices)', test_util
         test_util_1.expectArraysClose(result, expected);
     });
 });
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (multiple matrices)', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (multiple matrices)', DOWNLOAD_FLOAT_ENVS, function () {
     it('4x2 * 2x12 * 12x1 === 4x1', function () {
         var aData = new Float32Array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]);
         var bData = new Float32Array([
@@ -229,7 +232,7 @@ jasmine_util_1.describeWithFlags('mulmat_packed_gpu (multiple matrices)', test_u
         gpgpu.dispose();
     });
 });
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu A * B^t', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu A * B^t', DOWNLOAD_FLOAT_ENVS, function () {
     it('1x1 * 1x1', function () {
         var a = new Float32Array([2]);
         var b = new Float32Array([3]);
@@ -253,7 +256,7 @@ jasmine_util_1.describeWithFlags('mulmat_packed_gpu A * B^t', test_util_1.WEBGL_
         test_util_1.expectArraysClose(result, expected);
     });
 });
-jasmine_util_1.describeWithFlags('mulmat_packed_gpu (transposed versions)', test_util_1.WEBGL_ENVS, function () {
+jasmine_util_1.describeWithFlags('mulmat_packed_gpu (transposed versions)', DOWNLOAD_FLOAT_ENVS, function () {
     it('A * B^t', function () {
         var a = new Float32Array([1, 2, 3, 4, 5, 6]);
         var b = new Float32Array([1, 0, 2, 4, 3, 0]);
