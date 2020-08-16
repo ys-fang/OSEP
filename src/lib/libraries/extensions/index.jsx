@@ -377,8 +377,8 @@ export default [
         insetIconURL: onegpioEspInsetIconURL,
         description: (
         	<FormattedMessage
-            	defaultMessage="Fetch JSON."
-            	description="Fetch JSON extension"
+            	defaultMessage="OneGpio ESP-8266"
+            	description="OneGpio ESP-8266 extension"
             	id="gui.extension.OneGPIOEsp.description"
         	/>
     	),
@@ -397,8 +397,8 @@ export default [
         insetIconURL: onegpioPicoboardInsetIconURL,
         description: (
         	<FormattedMessage
-            	defaultMessage="Fetch JSON."
-            	description="Fetch JSON extension"
+            	defaultMessage="OneGpio Picoboard"
+            	description="OneGpio Picoboard extension"
             	id="gui.extension.OneGPIOPicoboard.description"
         	/>
     	),
@@ -417,8 +417,8 @@ export default [
         insetIconURL: onegpioCpxInsetIconURL,
         description: (
         	<FormattedMessage
-            	defaultMessage="Fetch JSON."
-            	description="Fetch JSON extension"
+            	defaultMessage="OneGpio Playground Express"
+            	description="OneGpio Playground Express extension"
             	id="gui.extension.OneGPIOCpx.description"
         	/>
     	),
@@ -437,8 +437,8 @@ export default [
         insetIconURL: onegpioRpiInsetIconURL,
         description: (
         	<FormattedMessage
-            	defaultMessage="Fetch JSON."
-            	description="Fetch JSON extension"
+            	defaultMessage="OneGpio Raspberry Pi"
+            	description="OneGpio Raspberry Pi extension"
             	id="gui.extension.OneGPIORpi.description"
         	/>
     	),

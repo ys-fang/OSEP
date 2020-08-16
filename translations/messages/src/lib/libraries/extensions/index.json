@@ -111,23 +111,23 @@
   },
   {
     "id": "gui.extension.OneGPIOEsp.description",
-    "description": "Fetch JSON extension",
-    "defaultMessage": "Fetch JSON."
+    "description": "OneGpio ESP-8266 extension",
+    "defaultMessage": "OneGpio ESP-8266"
   },
   {
     "id": "gui.extension.OneGPIOPicoboard.description",
-    "description": "Fetch JSON extension",
-    "defaultMessage": "Fetch JSON."
+    "description": "OneGpio Picoboard extension",
+    "defaultMessage": "OneGpio Picoboard"
   },
   {
     "id": "gui.extension.OneGPIOCpx.description",
-    "description": "Fetch JSON extension",
-    "defaultMessage": "Fetch JSON."
+    "description": "OneGpio Playground Express extension",
+    "defaultMessage": "OneGpio Playground Express"
   },
   {
     "id": "gui.extension.OneGPIORpi.description",
-    "description": "Fetch JSON extension",
-    "defaultMessage": "Fetch JSON."
+    "description": "OneGpio Raspberry Pi extension",
+    "defaultMessage": "OneGpio Raspberry Pi"
   },
   {
     "id": "gui.extension.gasojson.description",
