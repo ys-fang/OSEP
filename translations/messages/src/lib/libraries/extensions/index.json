@@ -110,6 +110,26 @@
     "defaultMessage": "OneGPIOArduino"
   },
   {
+    "id": "gui.extension.OneGPIOEsp.description",
+    "description": "OneGpio ESP-8266 extension",
+    "defaultMessage": "OneGpio ESP-8266"
+  },
+  {
+    "id": "gui.extension.OneGPIOPicoboard.description",
+    "description": "OneGpio Picoboard extension",
+    "defaultMessage": "OneGpio Picoboard"
+  },
+  {
+    "id": "gui.extension.OneGPIOCpx.description",
+    "description": "OneGpio Playground Express extension",
+    "defaultMessage": "OneGpio Playground Express"
+  },
+  {
+    "id": "gui.extension.OneGPIORpi.description",
+    "description": "OneGpio Raspberry Pi extension",
+    "defaultMessage": "OneGpio Raspberry Pi"
+  },
+  {
     "id": "gui.extension.gasojson.description",
     "description": "Fetch JSON extension",
     "defaultMessage": "Fetch JSON."
