@@ -541,7 +541,7 @@ export default [
 	insetIconURL: voicetotextInsetIconURL,
 	description: (
             <FormattedMessage
-                defaultMessage="語音轉文字VoiceToText"
+                defaultMessage="VoiceToText"
                 description="Voice To Text extension"
                 id="gui.extension.voicetotext.description"
             />

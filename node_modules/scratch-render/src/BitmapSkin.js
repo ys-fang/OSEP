@@ -57,16 +57,6 @@ class BitmapSkin extends Skin {
     }
 
     /**
-     * Get the bounds of the drawable for determining its fenced position.
-     * @param {Array<number>} drawable - The Drawable instance this skin is using.
-     * @param {?Rectangle} result - Optional destination for bounds calculation.
-     * @return {!Rectangle} The drawable's bounds. For compatibility with Scratch 2, we always use getAABB for bitmaps.
-     */
-    getFenceBounds (drawable, result) {
-        return drawable.getAABB(result);
-    }
-
-    /**
      * Set the contents of this skin to a snapshot of the provided bitmap data.
      * @param {ImageData|HTMLImageElement|HTMLCanvasElement|HTMLVideoElement} bitmapData - new contents for this skin.
      * @param {int} [costumeResolution=1] - The resolution to use for this bitmap.
@@ -108,7 +98,8 @@ class BitmapSkin extends Skin {
         this._textureSize = BitmapSkin._getBitmapSize(bitmapData);
 
         if (typeof rotationCenter === 'undefined') rotationCenter = this.calculateRotationCenter();
-        this.setRotationCenter.apply(this, rotationCenter);
+        this._rotationCenter[0] = rotationCenter[0];
+        this._rotationCenter[1] = rotationCenter[1];
 
         this.emit(Skin.Events.WasAltered);
     }
