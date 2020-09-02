@@ -5,19 +5,6 @@ const twgl = require('twgl.js');
 const RenderConstants = require('./RenderConstants');
 const Silhouette = require('./Silhouette');
 
-/**
- * Truncate a number into what could be stored in a 32 bit floating point value.
- * @param {number} num Number to truncate.
- * @return {number} Truncated value.
- */
-const toFloat32 = (function () {
-    const memory = new Float32Array(1);
-    return function (num) {
-        memory[0] = num;
-        return memory[0];
-    };
-}());
-
 class Skin extends EventEmitter {
     /**
      * Create a Skin, which stores and/or generates textures for use in rendering.
@@ -102,26 +89,6 @@ class Skin extends EventEmitter {
     }
 
     /**
-     * Set the origin, in object space, about which this Skin should rotate.
-     * @param {number} x - The x coordinate of the new rotation center.
-     * @param {number} y - The y coordinate of the new rotation center.
-     * @fires Skin.event:WasAltered
-     */
-    setRotationCenter (x, y) {
-        const emptySkin = this.size[0] === 0 && this.size[1] === 0;
-        // Compare a 32 bit x and y value against the stored 32 bit center
-        // values.
-        const changed = (
-            toFloat32(x) !== this._rotationCenter[0] ||
-            toFloat32(y) !== this._rotationCenter[1]);
-        if (!emptySkin && changed) {
-            this._rotationCenter[0] = x;
-            this._rotationCenter[1] = y;
-            this.emit(Skin.Events.WasAltered);
-        }
-    }
-
-    /**
      * Get the center of the current bounding box
      * @return {Array<number>} the center of the current bounding box
      */
@@ -143,10 +110,10 @@ class Skin extends EventEmitter {
      * Get the bounds of the drawable for determining its fenced position.
      * @param {Array<number>} drawable - The Drawable instance this skin is using.
      * @param {?Rectangle} result - Optional destination for bounds calculation.
-     * @return {!Rectangle} The drawable's bounds.
+     * @return {!Rectangle} The drawable's bounds. For compatibility with Scratch 2, we always use getAABB.
      */
     getFenceBounds (drawable, result) {
-        return drawable.getFastBounds(result);
+        return drawable.getAABB(result);
     }
 
     /**
@@ -212,6 +179,9 @@ class Skin extends EventEmitter {
             this._emptyImageTexture = twgl.createTexture(gl, textureOptions);
         }
 
+        this._rotationCenter[0] = 0;
+        this._rotationCenter[1] = 0;
+
         this._silhouette.update(this._emptyImageData);
         this.emit(Skin.Events.WasAltered);
     }
@@ -219,6 +189,9 @@ class Skin extends EventEmitter {
     /**
      * Does this point touch an opaque or translucent point on this skin?
      * Nearest Neighbor version
+     * The caller is responsible for ensuring this skin's silhouette is up-to-date.
+     * @see updateSilhouette
+     * @see Drawable.updateCPURenderAttributes
      * @param {twgl.v3} vec A texture coordinate.
      * @return {boolean} Did it touch?
      */
@@ -229,6 +202,9 @@ class Skin extends EventEmitter {
     /**
      * Does this point touch an opaque or translucent point on this skin?
      * Linear Interpolation version
+     * The caller is responsible for ensuring this skin's silhouette is up-to-date.
+     * @see updateSilhouette
+     * @see Drawable.updateCPURenderAttributes
      * @param {twgl.v3} vec A texture coordinate.
      * @return {boolean} Did it touch?
      */

@@ -33,7 +33,19 @@ const ReshapeModes = keyMirror({
 class ReshapeTool extends paper.Tool {
     /** Distance within which mouse is considered to be hitting an item */
     static get TOLERANCE () {
-        return 4;
+        return ReshapeTool.HANDLE_RADIUS + ReshapeTool.HANDLE_PADDING;
+    }
+    /**
+     * Units of padding around the visible handle area that will still register clicks as "touching the handle"
+     */
+    static get HANDLE_PADDING () {
+        return 1;
+    }
+    /**
+     * Handles' radius, including the stroke
+     */
+    static get HANDLE_RADIUS () {
+        return 5.25;
     }
     /** Clicks registered within this amount of time are registered as double clicks */
     static get DOUBLE_CLICK_MILLIS () {
@@ -74,7 +86,10 @@ class ReshapeTool extends paper.Tool {
         this.onKeyUp = this.handleKeyUp;
         this.onKeyDown = this.handleKeyDown;
 
-        paper.settings.handleSize = 8;
+        // A handle's size is given in diameter, and each handle has a 2.5-pixel stroke that isn't part of its size:
+        // https://github.com/LLK/paper.js/blob/a187e4c81cc63f3d48c5097b9a9fbddde9f057da/src/item/Item.js#L4480
+        // Size the handles such that clicking on either the stroke or the handle itself will be registered as a drag
+        paper.settings.handleSize = (ReshapeTool.HANDLE_RADIUS * 2) - 2.5;
     }
     /**
      * Returns the hit options for segments to use when conducting hit tests. Segments are only visible
@@ -118,21 +133,21 @@ class ReshapeTool extends paper.Tool {
         return hitOptions;
     }
     /**
-     * Returns the hit options for strokes and curves of selected objects, which take precedence over
+     * Returns the hit options for curves of selected objects, which take precedence over
      * unselected things and fills.
      * @return {object} See paper.Item.hitTest for definition of options
      */
     getSelectedStrokeHitOptions () {
         const hitOptions = {
             segments: false,
-            stroke: true,
+            stroke: false,
             curves: true,
             handles: false,
             fill: false,
             guide: false,
             tolerance: ReshapeTool.TOLERANCE / paper.view.zoom,
             match: hitResult => {
-                if (hitResult.type !== 'stroke' || hitResult.type !== 'curve') return false;
+                if (hitResult.type !== 'curve') return false;
                 if (!hitResult.item.selected) return false;
                 if (hitResult.item.data && hitResult.item.data.noHover) return false;
                 return true;
@@ -231,9 +246,10 @@ class ReshapeTool extends paper.Tool {
         };
 
         // If item is not yet selected, don't behave differently depending on if they clicked a segment
-        // or stroke (since those were invisible), just select the whole thing as if they clicked the fill.
+        // (since those were invisible), just select the whole thing as if they clicked the fill.
         if (!hitResult.item.selected ||
                 hitResult.type === 'fill' ||
+                hitResult.type === 'stroke' ||
                 (hitResult.type !== 'segment' && doubleClicked)) {
             this.mode = ReshapeModes.FILL;
             this._modeMap[this.mode].onMouseDown(hitProperties);
@@ -241,7 +257,6 @@ class ReshapeTool extends paper.Tool {
             this.mode = ReshapeModes.POINT;
             this._modeMap[this.mode].onMouseDown(hitProperties);
         } else if (
-            hitResult.type === 'stroke' ||
             hitResult.type === 'curve') {
             this.mode = ReshapeModes.POINT;
             this._modeMap[this.mode].addPoint(hitProperties);

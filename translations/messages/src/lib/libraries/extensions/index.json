@@ -152,7 +152,7 @@
   {
     "id": "gui.extension.voicetotext.description",
     "description": "Voice To Text extension",
-    "defaultMessage": "語音轉文字VoiceToText"
+    "defaultMessage": "VoiceToText"
   },
   {
     "id": "gui.extension.urltxt.description",
