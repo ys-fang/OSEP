@@ -151,7 +151,6 @@
     "@tensorflow/tfjs-layers": "^0.8.5",
     "babel-polyfill": "^6.26.0",
     "chokidar": "^3.4.2",
-    "fs": "0.0.1-security",
     "react-intl-redux": "^0.7.0",
     "sweetalert": "^2.1.2",
     "watch": "^1.0.2"

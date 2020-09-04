@@ -105,9 +105,48 @@ const projectData = translateFunction => {
                 ],
                 volume: 100,
                 visible: true,
-                x: 0,
-                y: 0,
+                x: -50,
+                y: -20,
                 size: 100,
+                direction: 90,
+                draggable: false,
+                rotationStyle: 'all around'
+            },
+            {
+                isStage: false,
+                name: translator(messages.sprite, {index: 1}),
+                variables: {},
+                lists: {},
+                broadcasts: {},
+                blocks: {},
+                currentCostume: 0,
+                costumes: [
+                    {
+                        assetId: 'b81aab0acaa208c7521833d32fda4b1d',
+                        name: translator(messages.costume, {index: 1}),
+                        bitmapResolution: 1,
+                        md5ext: 'b81aab0acaa208c7521833d32fda4b1d.svg',
+                        dataFormat: 'svg',
+                        rotationCenterX: 48,
+                        rotationCenterY: 50
+                    }
+                ],
+                sounds: [
+                    {
+                        assetId: '83c36d806dc92327b9e7049a565c6bff',
+                        name: translator(messages.meow),
+                        dataFormat: 'wav',
+                        format: '',
+                        rate: 22050,
+                        sampleCount: 18688,
+                        md5ext: '83c36d806dc92327b9e7049a565c6bff.wav'
+                    }
+                ],
+                volume: 100,
+                visible: true,
+                x: 50,
+                y: 0,
+                size: 90,
                 direction: 90,
                 draggable: false,
                 rotationStyle: 'all around'
