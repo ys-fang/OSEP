@@ -113,6 +113,11 @@ module.exports = [
             React: 'react',
             ReactDOM: 'react-dom'
         },
+        //add from estea require fs
+        node: {
+    	    fs: 'empty',
+  	},
+  	//end add
         module: {
             rules: base.module.rules.concat([
                 {
