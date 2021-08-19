@@ -28,10 +28,5 @@
     "id": "gui.costumeTab.addFileCostume",
     "description": "Button to add a costume by uploading a file in the editor tab",
     "defaultMessage": "Upload Costume"
-  },
-  {
-    "id": "gui.costumeTab.addCameraCostume",
-    "description": "Button to use the camera to create a costume costume in the editor tab",
-    "defaultMessage": "Camera"
   }
 ]

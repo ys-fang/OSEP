@@ -77,6 +77,12 @@ import rwGoogleInsetIconURL from './rwgoogle/rwgoogle.svg';
 import knnalgorithmImage from './knnAlgorithm/knnAlgorithm.png';
 import knnalgorithmInsetImage from './knnAlgorithm/knnAlgorithm-small.svg';
 
+import webserialArduinoImage from './webserialArduino/webserialArduino.svg';
+import webserialArduinoInsetIconURL from './webserialArduino/onegpioArduino-small.png';
+
+import webserialPicoboardImage from './webserialPicoboard/webserialPicoboard.svg';
+import webserialPicoboardInsetIconURL from './webserialPicoboard/webserialPicoboard-small.png';
+
 export default [
     {
         name: (
@@ -348,8 +354,9 @@ export default [
             />
         ),
         helpLink: 'https://scratch.mit.edu/vernier'
-    },
-    {
+    }
+,
+{
         name: 'OneGpio Arduino',
         extensionId: 'onegpioArduino',
         collaborator: "Mr. Y's Lab",
@@ -428,7 +435,8 @@ export default [
         bluetoothRequired: false,
         helpLink: 'https://mryslab.github.io/s3-extend/'
 
-    },
+    }
+,
     {
         name: 'OneGpio Raspberry Pi',
         extensionId: 'onegpioRpi',
@@ -448,7 +456,8 @@ export default [
         bluetoothRequired: false,
         helpLink: 'https://mryslab.github.io/s3-extend/'
 
-    },
+    }
+,
     {
 	name: 'JSON',
     	extensionId: 'gasoJSON',
@@ -611,5 +620,45 @@ export default [
         ),
         featured: true,
         helpLink: 'https://github.com/CodeLabClub/scratch3_knn'
-   }
+   },
+   {
+        name: 'Web Serial Arduino',
+        extensionId: 'webserialArduino',
+        collaborator: "Mr. Y's Lab estea chen",
+        iconURL: webserialArduinoImage,
+        insetIconURL: webserialArduinoInsetIconURL,
+	description: (
+            <FormattedMessage
+                defaultMessage="WebSerialArduino chrome only"
+                description="Web serial for the Arduino extension"
+                id="gui.extension.WebSerialArduino.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://mryslab.github.io/s3-extend/'
+
+    },
+    {
+        name: 'WebSerial Picoboard',
+        extensionId: 'webserialPicoboard',
+        collaborator: "estea chen",
+        iconURL: webserialPicoboardImage,
+        insetIconURL: webserialPicoboardInsetIconURL,
+        description: (
+        	<FormattedMessage
+            	defaultMessage="WebSerial Picoboard"
+            	description="WebSerial Picoboard extension"
+            	id="gui.extension.WebSerialPcoboard.description"
+        	/>
+    	),
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://ys-fang.github.io/OSEP/app/'
+
+    }
 ];

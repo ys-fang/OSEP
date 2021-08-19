@@ -1,5 +1,25 @@
 [
   {
+    "id": "gui.backpack.costumeLabel",
+    "description": "Label for costume backpack item",
+    "defaultMessage": "costume"
+  },
+  {
+    "id": "gui.backpack.soundLabel",
+    "description": "Label for sound backpack item",
+    "defaultMessage": "sound"
+  },
+  {
+    "id": "gui.backpack.scriptLabel",
+    "description": "Label for script backpack item",
+    "defaultMessage": "script"
+  },
+  {
+    "id": "gui.backpack.spriteLabel",
+    "description": "Label for sprite backpack item",
+    "defaultMessage": "sprite"
+  },
+  {
     "id": "gui.backpack.header",
     "description": "Button to open the backpack",
     "defaultMessage": "Backpack"

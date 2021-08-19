@@ -112,7 +112,7 @@ const projectData = translateFunction => {
                 draggable: false,
                 rotationStyle: 'all around'
             },
-            {
+            /*{
                 isStage: false,
                 name: translator(messages.sprite, {index: 1}),
                 variables: {},
@@ -150,7 +150,7 @@ const projectData = translateFunction => {
                 direction: 90,
                 draggable: false,
                 rotationStyle: 'all around'
-            }
+            }*/
         ],
         meta: {
             semver: '3.0.0',
