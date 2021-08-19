@@ -22,7 +22,12 @@ char* serialString()
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
+  //啟動D2
+    DDRD  &= ~( 1 << PD2 );     // Clear the PD2 pin and set PD2 (PCINT0 pin) now as input
+    PORTD |= (1 << PD2);        // Set PIN PD2 as INPUT with pull-up enabled
 
+    EICRA |= (1 << ISC00);      // set INT0 to trigger on ANY logic change
+    EIMSK |= (1 << INT0);       // Turns on INT0
 }
 
 void loop() {
@@ -38,15 +43,14 @@ void loop() {
   
   if (inputData!=NULL)
   {
-  //[1J4-A1,2J3-A2,3J2-A4,4按鈕D2,J1-A5，6光敏A3,聲音micA3,8滑桿(A0)]
+  //[1.J4-A1(D15),2J3-A2(D16),3J2-A4(D18),4按鈕D2,J1-A5(D19),6光敏A6(D20),聲音micA3(D17),8滑桿(A0)]
     Serial.print(analogRead(1));
     Serial.print(",");
     Serial.print(analogRead(2));
     Serial.print(",");
     Serial.print(analogRead(4));
     Serial.print(",");
-    Serial.print(digitalRead(21));
-    //Serial.print(analogRead(7));
+    Serial.print(digitalRead(2));
     Serial.print(",");
     Serial.print(analogRead(5));
     Serial.print(",");
