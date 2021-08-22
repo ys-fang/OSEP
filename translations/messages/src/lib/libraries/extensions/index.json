@@ -168,5 +168,15 @@
     "id": "gui.extension.knnalgorithm.description",
     "description": "Description for the 'knn algorithm' extension",
     "defaultMessage": "knn algorithm."
+  },
+  {
+    "id": "gui.extension.WebSerialArduino.description",
+    "description": "Web serial for the Arduino extension",
+    "defaultMessage": "WebSerialArduino chrome only"
+  },
+  {
+    "id": "gui.extension.WebSerialPcoboard.description",
+    "description": "WebSerial Picoboard extension",
+    "defaultMessage": "WebSerial Picoboard"
   }
 ]

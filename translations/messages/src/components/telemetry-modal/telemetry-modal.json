@@ -20,23 +20,33 @@
     "defaultMessage": "Privacy Policy"
   },
   {
-    "id": "gui.telemetryOptIn.buttonTextNo",
-    "description": "Text for telemetry modal opt-out button",
-    "defaultMessage": "No, thanks"
+    "id": "gui.telemetryOptIn.optInText",
+    "description": "Text for telemetry modal opt-in button",
+    "defaultMessage": "Share my usage data with the Scratch Team"
   },
   {
-    "id": "gui.telemetryOptIn.buttonTooltipNo",
+    "id": "gui.telemetryOptIn.optInTooltip",
+    "description": "Tooltip for telemetry modal opt-in button",
+    "defaultMessage": "Enable telemetry"
+  },
+  {
+    "id": "gui.telemetryOptIn.optOutText",
+    "description": "Text for telemetry modal opt-in button",
+    "defaultMessage": "Do not share my usage data with the Scratch Team"
+  },
+  {
+    "id": "gui.telemetryOptIn.optOutTooltip",
     "description": "Tooltip for telemetry modal opt-out button",
     "defaultMessage": "Disable telemetry"
   },
   {
-    "id": "gui.telemetryOptIn.buttonTextYes",
-    "description": "Text for telemetry modal opt-in button",
-    "defaultMessage": "Yes, I'd like to help improve Scratch"
+    "id": "gui.telemetryOptIn.settingWasUpdated",
+    "description": "Message indicating that the telemetry setting was updated and saved",
+    "defaultMessage": "Your setting was updated."
   },
   {
-    "id": "gui.telemetryOptIn.buttonTooltipYes",
-    "description": "Tooltip for telemetry modal opt-in button",
-    "defaultMessage": "Enable telemetry"
+    "id": "gui.telemetryOptIn.buttonClose",
+    "description": "Text for the button which closes the telemetry modal dialog",
+    "defaultMessage": "Close"
   }
 ]

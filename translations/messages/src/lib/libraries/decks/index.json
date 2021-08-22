@@ -10,8 +10,13 @@
     "defaultMessage": "Add a move block"
   },
   {
-    "id": "gui.howtos.add-a-move-block.step_stepMoveSayHello",
+    "id": "gui.howtos.add-a-move-block.step_stepSay",
     "description": "Step name for 'Add A Say Block' step",
+    "defaultMessage": "Add a say block"
+  },
+  {
+    "id": "gui.howtos.add-a-move-block.step_stepGreenFlag",
+    "description": "Step name for 'Add A Green Flag' step",
     "defaultMessage": "Click the green flag to start"
   },
   {

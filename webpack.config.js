@@ -55,7 +55,7 @@ const base = {
                     ['react-intl', {
                         messagesDir: './translations/messages/'
                     }]],
-                presets: ['@babel/preset-env', '@babel/preset-react']
+                presets: [ '@babel/preset-env', '@babel/preset-react']
             }
         },
         {
@@ -113,11 +113,6 @@ module.exports = [
             React: 'react',
             ReactDOM: 'react-dom'
         },
-        //add from estea require fs
-        node: {
-    	    fs: 'empty',
-  	},
-  	//end add
         module: {
             rules: base.module.rules.concat([
                 {
