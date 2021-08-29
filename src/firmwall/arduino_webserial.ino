@@ -64,10 +64,7 @@ void loop()
   static boolean needPrompt=true;
   
   char* inputData;
-  
-  char* OLEDTEXT0 ;
-  char* OLEDTEXT1 ;
-  char* OLEDTEXT2 ;
+
   if (needPrompt)
   {
     //Serial.print("Please enter inputs and press enter at the end:\n");
@@ -180,7 +177,6 @@ void loop()
       int digitalPin = atoi(inputPin);
       digitalWrite(digitalPin,atoi(inputValue));
     }
-    //Serial.println(inputData);
     needPrompt=true;
     //delay(1000);
   }
