@@ -11,6 +11,15 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
 
+//ws2812
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+ #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
+#endif
+
+#define NUMPIXELS 12 // Popular NeoPixel ring size
+//Adafruit_NeoPixel pixels(NUMPIXELS, 5, NEO_GRB + NEO_KHZ800);
+
 U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 //oled end
 
@@ -72,6 +81,12 @@ void setup() {
   pinMode(outPin13, OUTPUT);
   pinMode(outPin14, OUTPUT);
   pinMode(outPin15, OUTPUT);
+
+  //ws2812
+  #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
+  clock_prescale_set(clock_div_1);
+  #endif
+  //pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
   
 }
 
@@ -99,7 +114,23 @@ void loop() {
       //取出第4個值
       char* inputTime =strtok(NULL, "#");
       //Serial.println(inputTime);
+
+      //ws2812
+      if(strcmp(commandString, "ws") == 0){
+        int r = atoi(strtok(inputValue,","));
+        int g = atoi(strtok(NULL, ","));
+        int b = atoi(strtok(NULL, ","));
+        Adafruit_NeoPixel pixels(NUMPIXELS, atoi(inputPin), NEO_GRB + NEO_KHZ800);
+        pixels.begin();
+        //pixels.clear();
+        pixels.setPixelColor(atoi(inputTime), pixels.Color(r, g, b));
+        
+        //pixels.setPixelColor(5, pixels.Color(r, g, b));
+        pixels.show(); 
+        
+      }
       
+      //wifi
       if(strcmp(commandString, "w") == 0){
          WiFi.begin(inputPin,inputValue);
          byte count=0;
