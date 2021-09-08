@@ -85,6 +85,11 @@ import webserialPicoboardInsetIconURL from './webserialPicoboard/webserialPicobo
 
 import webserialEspImage from './webserialEsp/webserialEsp.png';
 import webserialEspInsetIconURL from './webserialEsp/webserialEsp-small.png';
+
+import webserialEsp32Image from './webserialEsp32/webserialEsp32.png';
+import webserialEsp32InsetIconURL from './webserialEsp32/webserialEsp-small.png';
+
+
 export default [
     {
         name: (
@@ -586,6 +591,7 @@ export default [
         useAutoScan: false,
         helpLink: 'https://github.com/estea8968/scratch3-internet'
     },
+    /*
     {
 	name: 'rwGoogle',
 	extensionId: 'rwGoogle',
@@ -606,7 +612,7 @@ export default [
         // launchPeripheralConnectionFlow: false,
         useAutoScan: false,
         helpLink: 'https://github.com/estea8968/scratch3-internet'
-    },
+    },*/
     {
         name: 'knnAlgorithm',
         extensionId: 'knnAlgorithm',
@@ -674,6 +680,26 @@ export default [
             	defaultMessage="Webserial ESP-8266"
             	description="Webserial ESP-8266 extension"
             	id="gui.extension.WebserialEsp.description"
+        	/>
+    	),
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: true,
+        bluetoothRequired: false,
+        helpLink: 'https://ys-fang.github.io/OSEP/app/'
+
+    },
+    {
+        name: 'Webserial ESP-32',
+        extensionId: 'webserialEsp32',
+        collaborator: "Mr. Y's Lab,estea chen",
+        iconURL: webserialEsp32Image,
+        insetIconURL: webserialEsp32InsetIconURL,
+        description: (
+        	<FormattedMessage
+            	defaultMessage="Webserial ESP-32"
+            	description="Webserial ESP-32 extension"
+            	id="gui.extension.WebserialEsp32.description"
         	/>
     	),
         featured: true,
