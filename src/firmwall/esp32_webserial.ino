@@ -228,7 +228,7 @@ void loop() {
       
       if(strcmp(commandString, "analogRead") == 0){
         int int_inputPin = atoi(inputPin);
-        pinMode(int_inputPin, INPUT);
+        //pinMode(int_inputPin, INPUT);
         Serial.println(analogRead(int_inputPin));
       }
       //數位讀取
