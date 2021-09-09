@@ -34,26 +34,6 @@ DHTStable DHT;
 //Servo myservo;  // create servo object to control a servo
 
 
-//const char* ssid = ""; // Your WiFi SSID
-//const char* password = ""; // Your WiFi Password
-//wifi
-///const uint16_t port = 3000;
-//ESP8266WiFiMulti WiFiMulti;
-
-
-
-/*
-const int outPin0 =  0;
-const int outPin1 =  1;
-const int outPin2 =  2;
-const int outPin3 =  3;
-const int outPin5 =  5;       // the number of the LED pin
-const int outPin4 =  4;
-const int outPin12 =  12;
-const int outPin13 =  13;
-const int outPin14 =  14;
-const int outPin15 =  15;
-*/
 // variable for storing the pushbutton status
 
 char* serialString()
@@ -143,10 +123,7 @@ void loop() {
       
       //wifi
       if(strcmp(commandString, "w") == 0){
-         //WiFi.begin(inputPin,inputValue);
-         //char * password = "0936469648";
-         //Serial.println(inputPin);
-         //Serial.println(inputValue);
+
          WiFi.begin(inputPin,inputValue);
          byte count=0;
          while (WiFi.status() != WL_CONNECTED)
@@ -169,19 +146,21 @@ void loop() {
        int trigPin = atoi(inputPin);
        int echoPin = atoi(inputValue);
        pinMode(trigPin, OUTPUT);        // 定義輸入及輸出 
-       pinMode(echoPin, INPUT);
+//       pinMode(echoPin, INPUT);
+       
        digitalWrite(trigPin, LOW);
        delayMicroseconds(5);
-       //digitalWrite(trigPin, HIGH);     // 給 Trig 高電位，持續 10微秒  
-       digitalWrite(trigPin, HIGH);     // 給 Trig 高電位，持續 10微秒  
+       digitalWrite(trigPin, HIGH);     // 給 Trig 高電位，持續 10微秒
        delayMicroseconds(10);
        digitalWrite(trigPin, LOW);
-       //pinMode(echoPin, INPUT);             // 讀取 echo 的電位
+
        pinMode(echoPin, INPUT);             // 讀取 echo 的電位
        duration = pulseIn(echoPin, HIGH);   // 收到高電位時的時間
-       cm = (duration/2) / 29.1;         // 將時間換算成距離 cm
-       Serial.println(cm);        
+       cm = (duration/2) / 29.1;         // 將時間換算成距離 cm 或 inch  
+       Serial.println(cm);
+        
     }
+    
      //oled 16x2
     //format: l#string#row
     if(strcmp(commandString, "o") == 0) {
@@ -260,6 +239,7 @@ void loop() {
       }
       //pwm類比寫入
       if(strcmp(commandString, "pwm") == 0){
+           pinMode(atoi(inputPin), OUTPUT);
            ledcAttachPin(atoi(inputPin), ledChannel);
            ledcWrite(ledChannel, atoi(inputValue));
            //analogWrite(atoi(inputPin),atoi(inputValue));
