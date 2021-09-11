@@ -1,6 +1,5 @@
 
 #include<WiFi.h>
-
 //#include <Servo.h>
 #include "DHTStable.h"
 #include <Wire.h> 
@@ -78,8 +77,38 @@ void setup() {
   clock_prescale_set(clock_div_1);
   #endif
   //pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
-  
+  setupTimer();
 }
+//tone
+const int PIN = 16;
+hw_timer_t* timer = NULL;
+bool value = true;
+int frequency = 20; // 20 to 20000
+
+void IRAM_ATTR onTimer() {
+  value = !value;
+  digitalWrite(PIN, value); 
+}
+
+void setupTimer() {
+    // Use 1st timer of 4  - 1 tick take 1/(80MHZ/80) = 1us so we set divider 80 and count up 
+    timer = timerBegin(0, 80, true);//div 80
+    timerAttachInterrupt(timer, &onTimer, true);
+}
+
+//void setFrequency(long frequencyHz){
+void setFrequency(int frequencyHz){  
+    timerAlarmDisable(timer);
+    timerAlarmWrite(timer, 1000000l / frequencyHz, true);
+    timerAlarmEnable(timer);
+}
+/*
+//void tone(long frequencyHz, long durationMs){
+//void esp32tone(int frequencyHz, int durationMs){  
+//    setFrequency(frequencyHz);
+//   delay(durationMs);
+//}
+*/
 
 void loop() {
     static boolean needPrompt=true;
@@ -214,16 +243,23 @@ void loop() {
       
       }
       
+      
       //tone
-      /*if(strcmp(commandString, "tonePlay") == 0){
+      
+      if(strcmp(commandString, "tonePlay") == 0){
         int toneTime = atoi(inputTime);
         int tonePin = atoi(inputPin);
-        tone(tonePin, atoi(inputValue),toneTime);
-        //tone(4,110,1000);
+        int toneValue = atoi(inputValue) ;
+        pinMode(tonePin,OUTPUT);
+        setFrequency(toneValue);
+        timerAlarmDisable(timer);
+        //timerAlarmWrite(timer, 1000000l / frequencyHz, true);
+        timerAlarmWrite(timer, 1000000l / toneValue, true);
+        timerAlarmEnable(timer);
         delay(toneTime);
-        noTone(tonePin);
-        delay(10);
-      }*/
+        timerAlarmWrite(timer, 1000000l / toneValue, false);
+                
+      }
       //類比讀取
       
       if(strcmp(commandString, "analogRead") == 0){
