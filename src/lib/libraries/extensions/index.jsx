@@ -591,7 +591,7 @@ export default [
         useAutoScan: false,
         helpLink: 'https://github.com/estea8968/scratch3-internet'
     },
-    /*
+    
     {
 	name: 'rwGoogle',
 	extensionId: 'rwGoogle',
@@ -612,7 +612,7 @@ export default [
         // launchPeripheralConnectionFlow: false,
         useAutoScan: false,
         helpLink: 'https://github.com/estea8968/scratch3-internet'
-    },*/
+    },
     {
         name: 'knnAlgorithm',
         extensionId: 'knnAlgorithm',
