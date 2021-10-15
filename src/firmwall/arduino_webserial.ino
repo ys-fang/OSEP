@@ -82,6 +82,16 @@ void loop()
     char* inputValue = strtok(NULL, "#");
     //取出第4個值
     int inputTime = atoi(strtok(NULL, "#"));
+    //setPinmode
+    if(strcmp(commandString, "pinMode")== 0){
+      int digitalPin = atoi(inputPin);
+      if(strcmp(inputValue, "output")== 0){
+        pinMode(digitalPin, OUTPUT);        
+      }else{
+        pinMode(digitalPin, INPUT);
+      }
+      //Serial.println(inputValue);
+    }
     //超音波
     if(strcmp(commandString, "HC-SR04")== 0){
        long duration, cm; 
